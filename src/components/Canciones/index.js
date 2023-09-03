@@ -14,18 +14,18 @@ class Peliculas extends Component{
         .catch(err => console.log(err))
     }
     render(){
+        if(this.state.data === null){
+            <h1>Ta cargando</h1>
+        }
         if (this.state.data != null) {
             return(
                 <React.Fragment>
                     <h2>Top Canciones</h2>
                     <div className="divCanciones">
-                        {this.state.data.map((info,idx) => <Cancion key={info+idx} img={info.album.cover} name={info.title}/>)}
+                        {this.state.data.map((info,idx) => <Cancion key={info+idx} img={info.album.cover} name={info.title} id={info.id}/>)}
                     </div>
                 </React.Fragment>
             )
-        }
-        else{
-            <h1>Ta cargando</h1>
         }
     }
 }

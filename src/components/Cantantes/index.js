@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Cantante from "../Cantante";
 import "./index.css"
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class Cantantes extends Component{
     constructor(props){
@@ -18,15 +19,18 @@ class Cantantes extends Component{
         if (this.state.data != null) {
             return(
                 <React.Fragment>
-                    <h2>Top Cantantes</h2>
+                    <div className="titulo">
+                    <h2>Top Cantantes </h2>
+                    <h2 className="verMas"><Link to="/cantantes">Ver mas</Link></h2>
+                    </div>
                     <div className="divCantantes">
-                        {this.state.data.map((info,idx) => <Cantante key={info+idx} img={info.picture} name={info.name}/>)}
+                        {this.state.data.map((info,idx) => <Cantante key={info+idx} img={info.picture} name={info.name} id={info.id}/>)}
                     </div>
                 </React.Fragment>
             )
         }
-        else{
-            <h1>Ta cargando</h1>
+        if(this.state.data == null){
+            return <h1>Ta cargando</h1>
         }
     }
 }

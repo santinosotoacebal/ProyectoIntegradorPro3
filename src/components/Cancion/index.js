@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./index.css"
 class Pelicula extends Component{
     constructor(props){
@@ -14,11 +15,11 @@ class Pelicula extends Component{
         return(
             <React.Fragment>
                 <div className="divPelicula">
-                <img src={this.props.img}></img>
+                <img src={this.props.img} alt={this.props.name}></img>
                 <h4>{this.props.name}</h4>
                 <h5 id={`descripcionOculta${this.props.name}`} className="descripcionOculta">Aca en teoria va una descripcion pero dios sabe de donde poronga la tenemos que sacar</h5>
-                <button onClick={()=> this.mostrarDescripcion()}>Ver mas</button>
-                <button>Ir a detalle</button>
+                <h5 className="boton" onClick={()=> this.mostrarDescripcion()}>Ver mas</h5>
+                <h5 className="boton"> <Link to ={`/detalle/cancion/${this.props.id}`}>Ir a detalle</Link></h5>
                 <h5>Insertar icono de estrellita para fav</h5>
                 </div>
             </React.Fragment>
