@@ -18,7 +18,7 @@ body {
     flex-direction: column;
     font-family: Nunito;
     margin: 0;
-    background-image: url("../img/seleccion-argentina-con-trofeo-c.png");
+    background-color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -126,4 +126,7 @@ h5{
 }
 h4{
     margin: 0;
+}
+.estrellas{
+    display: flex;
 }

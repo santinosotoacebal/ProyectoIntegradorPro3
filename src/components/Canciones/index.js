@@ -22,7 +22,7 @@ class Peliculas extends Component{
                 <React.Fragment>
                     <h2>Top Canciones</h2>
                     <div className="divCanciones">
-                        {this.state.data.map((info,idx) => <Cancion key={info+idx} img={info.album.cover} name={info.title} id={info.id}/>)}
+                        {this.state.data.map((info,idx) => <Cancion key={info+idx} img={info.album.cover} name={info.title} id={info.id} expl = {info.explicit_lyrics}/>)}
                     </div>
                 </React.Fragment>
             )

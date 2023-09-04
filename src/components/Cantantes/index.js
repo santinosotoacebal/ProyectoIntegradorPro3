@@ -24,7 +24,7 @@ class Cantantes extends Component{
                     <h2 className="verMas"><Link to="/cantantes">Ver mas</Link></h2>
                     </div>
                     <div className="divCantantes">
-                        {this.state.data.map((info,idx) => <Cantante key={info+idx} img={info.picture} name={info.name} id={info.id}/>)}
+                        {this.state.data.map((info,idx) => <Cantante key={info+idx} img={info.picture} name={info.name} id={info.id} radio = {info.radio}/>)}
                     </div>
                 </React.Fragment>
             )

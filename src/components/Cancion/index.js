@@ -5,11 +5,18 @@ class Pelicula extends Component{
     constructor(props){
         super(props)
         this.state = {
-            props: props.value
+            props: props.value,
+            verMas:0
         }
     }
     mostrarDescripcion(){
         document.getElementById(`descripcionOculta${this.props.name}`).classList.toggle("mostrarDescripcion")
+    }
+    verMas(){
+        this.setState({verMas:1})
+    }
+    verMenos(){
+        this.setState({verMas:0})
     }
     render(){
         return(
@@ -18,9 +25,17 @@ class Pelicula extends Component{
                 <img src={this.props.img} alt={this.props.name}></img>
                 <h4>{this.props.name}</h4>
                 <h5 id={`descripcionOculta${this.props.name}`} className="descripcionOculta">Aca en teoria va una descripcion pero dios sabe de donde poronga la tenemos que sacar</h5>
-                <h5 className="boton" onClick={()=> this.mostrarDescripcion()}>Ver mas</h5>
+                {this.state.verMas === 1 ? ( this.props.expl === true ? <p>Esta cancion contiene palabras explicitas</p> : <p>Esta cancion no contiene palabras explicitas</p> ) :   <p></p>}       
+                {this.state.verMas === 0 ? 
+                 <button onClick={()=>this.verMas()}>Ver Mas</button> :
+                 <button onClick={()=>this.verMenos()}>Ver Menos</button>
+                }
                 <h5 className="boton"> <Link to ={`/detalle/cancion/${this.props.id}`}>Ir a detalle</Link></h5>
-                <h5>Insertar icono de estrellita para fav</h5>
+                <div className="estrellas">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+                </div>
+                
                 </div>
             </React.Fragment>
             )
