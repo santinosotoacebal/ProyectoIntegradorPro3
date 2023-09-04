@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-class DetalleCantante extends Component {
+import DetalleCantante from '../../components/DetalleCantante';
+class screenDetalleCantante extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
     render() { 
-        return (<h1 style={{color:"white"}}>Este el es detalle de {this.props.match.params.id}</h1>);
+        return (<DetalleCantante id={this.props.match.params.id}/>);
     }
 }
-export default DetalleCantante;
+export default screenDetalleCantante;

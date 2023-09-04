@@ -13,3 +13,6 @@ img{
 .descripcionOculta{
     display: none;
 }
+p{
+    align-self: flex-start;
+}

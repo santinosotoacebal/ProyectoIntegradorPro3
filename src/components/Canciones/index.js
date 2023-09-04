@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Cancion from "../Cancion";
 import "./index.css"
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class Canciones extends Component{
     constructor(props){
         super(props)
