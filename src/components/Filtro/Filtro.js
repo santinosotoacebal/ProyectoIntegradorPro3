@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React,{ Component } from "react";
 
 class Filtro extends Component{
     constructor(props){
@@ -20,11 +20,11 @@ class Filtro extends Component{
 
     render(){
         return(
-            <>
+            <React.Fragment>
             <form onSubmit={(e)=> this.evitarSubmit(e)}>
                 <input onChange={(e)=> this.guardarValor(e)} value={this.state.texto}/>
             </form>
-            </>
+            </React.Fragment>
         )
     }
 }
