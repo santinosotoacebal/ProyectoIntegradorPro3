@@ -6,11 +6,42 @@ class Cantante extends Component{
         super(props)
         this.state = {
             props: props.value,
-            verMas:0
+            verMas:0,
+            esFavorito: false
         }
     }
-    mostrarDescripcion(){
-        document.getElementById(`descripcionOculta${this.props.name}`).classList.toggle("mostrarDescripcion")
+    componentDidMount(){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
+        if (FavoritosStorage !== null) {
+            let EstaElC = FavoritosStorage.includes(this.props.id)
+            if (EstaElC) {
+                this.setState({
+                    esFavorito:true
+                })
+            }
+        }
+    }
+    agregarFav(id){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
+        if (FavoritosStorage !== null) {
+            FavoritosStorage.push(id)
+            localStorage.setItem('favoritosCantantes', JSON.stringify(FavoritosStorage))
+        } else{
+            let  IdAArray = [id]
+            localStorage.setItem('favoritosCantantes',JSON.stringify(IdAArray))
+        }
+
+        this.setState({
+            esFavorito:true
+        })
+    }
+    borrarFav(id){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
+        let FavoritosNuevos = FavoritosStorage.filter(ids=> ids!==id)
+        localStorage.setItem('favoritosCantantes', JSON.stringify(FavoritosNuevos))
+        this.setState({
+            esFavorito:false
+        })
     }
     verMas(){
         this.setState({verMas:1})
@@ -24,10 +55,7 @@ class Cantante extends Component{
                 <div className="divCantante">
                 <img src={this.props.img} alt={this.props.name}></img>
                 <h4>{this.props.name}</h4>
-                <h5 id={`descripcionOculta${this.props.name}`} className="descripcionOculta">Aca en teoria va una descripcion pero dios sabe de donde poronga la tenemos que sacar</h5>
                 {this.state.verMas === 1 ? ( this.props.radio === true ? <p>Este artista toca en radio</p> : <p>Este artista no toca en radio</p> ) :   <p></p>}
-            
-                
                 {this.state.verMas === 0 ? 
                  <button onClick={()=>this.verMas()}>Ver Mas</button> :
                  <button onClick={()=>this.verMenos()}>Ver Menos</button>
@@ -37,6 +65,11 @@ class Cantante extends Component{
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-regular fa-star"></i>
                 </div>
+                {this.state.esFavorito ? 
+                <button onClick = {(id)=>this.borrarFav(this.props.id)}>Borrar de favoritos</button> :
+                <button onClick = {(id)=>this.agregarFav(this.props.id)}>Agregar a Favoritos</button>
+                }
+                
                 
                 </div>
             </React.Fragment>

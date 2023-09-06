@@ -1,16 +1,51 @@
 import React,{Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./index.css"
-class Pelicula extends Component{
+class Cancion extends Component{
     constructor(props){
         super(props)
         this.state = {
             props: props.value,
-            verMas:0
+            verMas:0,
+            esFavorito:false
         }
     }
-    mostrarDescripcion(){
-        document.getElementById(`descripcionOculta${this.props.name}`).classList.toggle("mostrarDescripcion")
+    componentDidMount(){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCanciones'))
+        if (FavoritosStorage !== null) {
+            let EstaElC = FavoritosStorage.includes(this.props.id)
+            if (EstaElC) {
+                this.setState({
+                    esFavorito:true
+                })
+            }
+        }
+    }
+    agregarFav(id){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCanciones'))
+        if (FavoritosStorage !== null) {
+            FavoritosStorage.push(id)
+            localStorage.setItem('favoritosCanciones', JSON.stringify(FavoritosStorage))
+        } else{
+            let  IdAArray = [id]
+            localStorage.setItem('favoritosCanciones',JSON.stringify(IdAArray))
+        }
+
+        this.setState({
+            esFavorito:true
+        })
+    }
+    borrarFav(idCancion){
+        let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCanciones'))
+        let FavoritosNuevos = FavoritosStorage.filter(ids=> ids!==idCancion)
+        localStorage.setItem('favoritosCanciones', JSON.stringify(FavoritosNuevos))
+        if (this.props.actualizarEstadoCanciones !== false) {
+            this.props.actualizarEstadoCanciones(idCancion)
+            return
+        }
+        this.setState({
+            esFavorito:false
+        })
     }
     verMas(){
         this.setState({verMas:1})
@@ -24,7 +59,6 @@ class Pelicula extends Component{
                 <div className="divPelicula">
                 <img src={this.props.img} alt={this.props.name}></img>
                 <h4>{this.props.name}</h4>
-                <h5 id={`descripcionOculta${this.props.name}`} className="descripcionOculta">Aca en teoria va una descripcion pero dios sabe de donde poronga la tenemos que sacar</h5>
                 {this.state.verMas === 1 ? ( this.props.expl === true ? <p>Esta cancion contiene palabras explicitas</p> : <p>Esta cancion no contiene palabras explicitas</p> ) :   <p></p>}       
                 {this.state.verMas === 0 ? 
                  <button onClick={()=>this.verMas()}>Ver Mas</button> :
@@ -35,14 +69,17 @@ class Pelicula extends Component{
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-regular fa-star"></i>
                 </div>
-                
+                {this.state.esFavorito ? 
+                <button onClick = {(id)=>this.borrarFav(this.props.id)}>Borrar de favoritos</button> :
+                <button onClick = {(id)=>this.agregarFav(this.props.id)}>Agregar a Favoritos</button>
+                }
                 </div>
             </React.Fragment>
             )
     }
 }
 
-export default Pelicula;
+export default Cancion;
 
 
 
