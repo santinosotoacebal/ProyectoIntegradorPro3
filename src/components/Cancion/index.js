@@ -65,13 +65,9 @@ class Cancion extends Component{
                  <button onClick={()=>this.verMenos()}>Ver Menos</button>
                 }
                 <h5 className="boton"> <Link to ={`/detalle/cancion/${this.props.id}`}>Ir a detalle</Link></h5>
-                <div className="estrellas">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                </div>
                 {this.state.esFavorito ? 
-                <button onClick = {(id)=>this.borrarFav(this.props.id)}>Borrar de favoritos</button> :
-                <button onClick = {(id)=>this.agregarFav(this.props.id)}>Agregar a Favoritos</button>
+                <a onClick = {(id)=>this.borrarFav(this.props.id)}><i class="fa-solid fa-star"></i> </a>:
+                <a onClick = {(id)=>this.agregarFav(this.props.id)}><i class="fa-regular fa-star"></i> </a>
                 }
                 </div>
             </React.Fragment>

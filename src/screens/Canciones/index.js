@@ -5,13 +5,13 @@ class Canciones extends Component {
     constructor(props) {
         super(props);
         this.state = {  
-            index : 50,
+            index : 20,
             canciones:[],
             backup:[]
         }
     }
     componentDidMount(){
-        fetch(`https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks?limit=50`)
+        fetch(`https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks?limit=20`)
         .then(res => res.json())
         .then(data => this.setState({
             canciones : data.data,
