@@ -21,8 +21,7 @@ class Cantantes extends Component{
                             name={inf.name} 
                             id={inf.id} 
                             radio = {inf.radio}
-                        />)
-                        }
+                            actualizarEstadoCantantes = {this.props.actualizarEstadoCantantes ? (id)=>this.props.actualizarEstadoCantantes(id):false}/>)}
                     </div>
                 </React.Fragment>
             )

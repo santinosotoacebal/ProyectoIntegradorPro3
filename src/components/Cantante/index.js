@@ -23,14 +23,8 @@ class Cantante extends Component{
     }
     agregarFav(id){
         let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
-        if (FavoritosStorage !== null) {
             FavoritosStorage.push(id)
             localStorage.setItem('favoritosCantantes', JSON.stringify(FavoritosStorage))
-        } else{
-            let  IdAArray = [id]
-            localStorage.setItem('favoritosCantantes',JSON.stringify(IdAArray))
-        }
-
         this.setState({
             esFavorito:true
         })
@@ -39,6 +33,10 @@ class Cantante extends Component{
         let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
         let FavoritosNuevos = FavoritosStorage.filter(ids=> ids!==id)
         localStorage.setItem('favoritosCantantes', JSON.stringify(FavoritosNuevos))
+        if (this.props.actualizarEstadoCantantes !== false) {
+            this.props.actualizarEstadoCantantes(id)
+            return
+        }
         this.setState({
             esFavorito:false
         })
@@ -61,16 +59,10 @@ class Cantante extends Component{
                  <button onClick={()=>this.verMenos()}>Ver Menos</button>
                 }
                 <h5 className="boton"><Link to={`/detalle/cantante/${this.props.id}`}>Ir a detalle</Link></h5>
-                <div className="estrellas">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                </div>
                 {this.state.esFavorito ? 
-                <button onClick = {(id)=>this.borrarFav(this.props.id)}>Borrar de favoritos</button> :
-                <button onClick = {(id)=>this.agregarFav(this.props.id)}>Agregar a Favoritos</button>
+                <i onClick = {(id)=>this.borrarFav(this.props.id)} className="fa-solid fa-star"></i>:
+                <i onClick = {(id)=>this.agregarFav(this.props.id)} className="fa-regular fa-star"></i>
                 }
-                
-                
                 </div>
             </React.Fragment>
             )

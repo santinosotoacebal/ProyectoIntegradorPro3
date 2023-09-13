@@ -60,7 +60,7 @@ class DetalleCancion extends Component {
                             <h1>Titulo: {info.title}</h1>
                             <h2>Artista: {info.artist.name}</h2>
                             <h2>Album: {info.album.title}</h2>
-                            <iframe src={this.state.data.preview} width="500" height="70" frameborder="0" allowfullscreen></iframe>
+                            <iframe title={info.title} src={this.state.data.preview} width="500" height="70" frameborder="0" allowfullscreen></iframe>
                             {this.state.esFavorito ? 
                 <button onClick = {(id)=>this.borrarFav(this.state.data.id)}>Borrar de favoritos</button> :
                 <button onClick = {(id)=>this.agregarFav(this.state.data.id)}>Agregar a Favoritos</button>
