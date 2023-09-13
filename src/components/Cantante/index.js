@@ -23,8 +23,14 @@ class Cantante extends Component{
     }
     agregarFav(id){
         let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
+        if (FavoritosStorage !== null) {
             FavoritosStorage.push(id)
             localStorage.setItem('favoritosCantantes', JSON.stringify(FavoritosStorage))
+        } else{
+            let  IdAArray = [id]
+            localStorage.setItem('favoritosCantantes',JSON.stringify(IdAArray))
+        }
+
         this.setState({
             esFavorito:true
         })

@@ -21,6 +21,14 @@ class Home extends Component {
         .then(data => this.setState({dataCanciones:data.data},()=>console.log(data)))
         .catch(err => console.log(err))
 
+        if (localStorage.getItem('favoritosCanciones')==null) {
+            let prueba = []
+            localStorage.setItem('favoritosCanciones',JSON.stringify(prueba))
+        }
+        if (localStorage.getItem('favoritosCantantes')== null) {
+            let prueba = []
+            localStorage.setItem('favoritosCantantes',JSON.stringify(prueba))
+        }
     }
     render(){
     return(
