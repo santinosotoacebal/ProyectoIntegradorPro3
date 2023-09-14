@@ -147,3 +147,14 @@ h4{
     justify-content: center;
     align-self: center;
 }
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.espaciado{
+    margin-top: 10vh;
+    padding-bottom: 15vh;
+}

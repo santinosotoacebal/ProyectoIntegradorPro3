@@ -10,12 +10,6 @@ class Footer extends Component{
         return(
             <React.Fragment>
                 <footer className='footer'>
-                    <ul className="ulFooter">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/favoritos">Favoritos</Link></li>
-                        <li><Link to="/canciones">Canciones</Link></li>
-                        <li><Link to="/cantantes">Cantantes</Link></li>
-                    </ul>
                     <div className='autores'>
                     <h6>Tomas Giovana</h6>
                     <h6>Santino Soto Acebal</h6>

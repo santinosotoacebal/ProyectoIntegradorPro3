@@ -15,16 +15,18 @@ function App() {
     <div className="App">
       <div className='content'>
     <Header usuario="Pepe"/>
-    <Switch>
-    <Route path="/" exact={true} component={Home} />
-    <Route path="/about" component={About}/>
-    <Route path="/favoritos" component={Favoritos}/>
-    <Route path="/cantantes" component={Cantantes}/>
-    <Route path="/canciones" component={Canciones}/>
-    <Route path="/detalle/cancion/:id" component={screenDetalleCancion}/>
-    <Route path="/detalle/cantante/:id" component={screenDetalleCantante}/>
-    <Route path="*" component={notFound}/>
-    </Switch>
+    <div className= "espaciado">
+      <Switch>
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About}/>
+      <Route path="/favoritos" component={Favoritos}/>
+      <Route path="/cantantes" component={Cantantes}/>
+      <Route path="/canciones" component={Canciones}/>
+      <Route path="/detalle/cancion/:id" component={screenDetalleCancion}/>
+      <Route path="/detalle/cantante/:id" component={screenDetalleCantante}/>
+      <Route path="*" component={notFound}/>
+      </Switch>
+    </div>
     <Footer/>
     </div>
     </div>
