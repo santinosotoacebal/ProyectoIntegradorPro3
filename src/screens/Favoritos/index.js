@@ -51,7 +51,7 @@ class Favoritos extends Component {
         <h2>Favoritos Canciones</h2>
         {storageCanciones.length ===  0  ?  <h3>Aun no has añadido ninguna cancion a favoritos</h3>:<CancionesContainter info = {this.state.favoritosCanciones} actualizarEstadoCanciones = {(id)=>this.actualizarEstadoCanciones(id)}/>}
         <h2>Favoritos Cantantes</h2>
-        {storageCantantes.length === 0 ? <h3>Aun no has añadido ningun cantante a favoritos</h3>:<Cantantes info = {this.state.favoritosCantantes} actualizarEstadoCantantes = {(id)=>this.actualizarEstadoCanciones(id)}/>}
+        {storageCantantes.length === 0 ? <h3>Aun no has añadido ningun cantante a favoritos</h3>:<Cantantes info = {this.state.favoritosCantantes} actualizarEstadoCantantes = {(id)=>this.actualizarEstadoCantantes(id)}/>}
         </>
         )
     }

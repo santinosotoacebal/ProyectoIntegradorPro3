@@ -6,6 +6,9 @@ class Canciones extends Component{
         super(props)
         this.state = {props:props.value, data:null}
     }
+    componentDidMount(){
+        console.log(this.props.info)
+    }
 
     render(){
             return(
@@ -19,6 +22,7 @@ class Canciones extends Component{
                             img={info.album.cover} 
                             name={info.title} 
                             id={info.id} 
+                            artist = {info.artist.name}
                             expl = {info.explicit_lyrics} 
                             actualizarEstadoCanciones = {this.props.actualizarEstadoCanciones ? (id)=>this.props.actualizarEstadoCanciones(id):false}/>)}                    
                             </div>
