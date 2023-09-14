@@ -19,7 +19,7 @@ class Footer extends Component{
                     <div className='autores'>
                     <h6>Tomas Giovana</h6>
                     <h6>Santino Soto Acebal</h6>
-                    <h6>Pedro Sampayo(perdon si lo escribo mal, despues corregilo)</h6>
+                    <h6>Pedro Sampayo Morrow</h6>
                     </div>
                 </footer>
             </React.Fragment>

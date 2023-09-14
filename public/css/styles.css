@@ -23,6 +23,12 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 
 /* Navigation */
 nav{

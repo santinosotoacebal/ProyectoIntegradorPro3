@@ -6,13 +6,18 @@
     padding: 5px 10px;
     background-color: #4e73df;
     border-radius: 10px;
+    margin-top: 1vh;
+    border: 3px solid black
 }
 img{
-    border: 1.5px solid black;
+    border: 3px solid black
 }
 .descripcionOculta{
     display: none;
 }
 p{
     align-self: flex-start;
+}
+.foto{
+    max-width: 10vw;
 }
