@@ -12,7 +12,7 @@ class Buscador extends Component {
         return ( 
             <form action={`/resultadodebusqueda/${this.state.valor}`}>
             <input style={{marginRight:5}} placeholder='Buscador ' type="text" onChange={(e)=>this.guardarValor(e)} name="search" value={this.state.valor}/>
-            <button className='botonVerMas' type="submit" value="Buscar"> Buscar </button> 
+            <button className='botonVerMas2' type="submit" value="Buscar"> Buscar </button> 
             </form>
         );
     }
