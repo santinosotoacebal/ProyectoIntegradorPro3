@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import React, { Component } from 'react'
+import Buscador from "../Buscador";
 
-function Header(props) {
-    return (
+class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+    render() { 
+            return (  
         <nav style={{marginBottom:'2%'}}>
         <ul className="main-nav">
             <li><Link to="/">Home</Link></li>
@@ -10,9 +17,9 @@ function Header(props) {
             <li><Link to="/cantantes">Cantantes</Link></li>
         </ul>
         <ul className="user">
-            <li>{props.usuario} <img src="Proyecto_integrador/ProyectoIntegradorPro3/public/img/seleccion-argentina-con-trofeo-c.png" alt=""></img></li>
+            <Buscador/>
         </ul>
     </nav>)
+    }
 }
-
 export default Header;

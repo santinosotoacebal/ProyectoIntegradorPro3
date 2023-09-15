@@ -13,7 +13,7 @@ class Cantantes extends Component{
                     <div className="divCantantes">
                         {
                             this.props.info.length === 0 ?
-                            <h1>Ta cargando</h1> :
+                            <div className="divGif"><img className='GIF' src='https://usagif.com/wp-content/uploads/loading-79.gif'/></div>   :
                         this.props.info.map((inf,idx) => 
                         <Cantante 
                             key={inf+idx} 

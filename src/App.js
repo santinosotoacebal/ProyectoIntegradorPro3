@@ -8,7 +8,9 @@ import Cantantes from './screens/Cantantes';
 import Canciones from './screens/Canciones'
 import screenDetalleCancion from './screens/DetalleCancion';
 import screenDetalleCantante from './screens/DetalleCantante';
+import screenResultadoBusqueda from './screens/ResultadosBusqueda';
 import notFound from './screens/notFound';
+import "./css/styles.css"
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
       <Route path="/canciones" component={Canciones}/>
       <Route path="/detalle/cancion/:id" component={screenDetalleCancion}/>
       <Route path="/detalle/cantante/:id" component={screenDetalleCantante}/>
+      <Route path="/resultadodebusqueda/:busqueda" component={screenResultadoBusqueda}/>
       <Route path="*" component={notFound}/>
       </Switch>
     </div>

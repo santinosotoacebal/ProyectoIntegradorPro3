@@ -21,3 +21,15 @@ p{
 .foto{
     max-width: 10vw;
 }
+.botonVerMas{
+    background-color: white;
+    border-radius: 6px;
+    border: none;
+    padding: 3px 5px;
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+}
+
+.botonVerMas:hover{
+    background-color: grey;
+}

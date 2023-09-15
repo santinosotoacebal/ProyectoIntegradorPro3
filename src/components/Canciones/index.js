@@ -15,7 +15,7 @@ class Canciones extends Component{
                 <React.Fragment>
                     <div className="divCanciones">
                         {this.props.info.length === 0 ?
-                        <h1>Ta cargando</h1> : 
+                        <div className="divGif"><img className='GIF' src='https://usagif.com/wp-content/uploads/loading-79.gif'/></div> : 
                         this.props.info.map((info,idx) => 
                         <Cancion 
                             key={info+idx} 

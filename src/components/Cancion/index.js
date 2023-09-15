@@ -62,8 +62,8 @@ class Cancion extends Component{
                 <h4>{this.props.artist}</h4>
                 {this.state.verMas === 1 ? ( this.props.expl === true ? <p>Esta cancion contiene palabras explicitas</p> : <p>Esta cancion no contiene palabras explicitas</p> ) :   <p></p>}       
                 {this.state.verMas === 0 ? 
-                 <button onClick={()=>this.verMas()}>Ver Mas</button> :
-                 <button onClick={()=>this.verMenos()}>Ver Menos</button>
+                 <button className="botonVerMas" onClick={()=>this.verMas()}>Ver Mas</button> :
+                 <button className="botonVerMas" onClick={()=>this.verMenos()}>Ver Menos</button>
                 }
                 <h5 className="boton"> <Link to ={`/detalle/cancion/${this.props.id}`}>Ir a detalle</Link></h5>
                 {this.state.esFavorito ? 

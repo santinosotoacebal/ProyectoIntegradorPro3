@@ -61,8 +61,8 @@ class Cantante extends Component{
                 <h4>{this.props.name}</h4>
                 {this.state.verMas === 1 ? ( this.props.radio === true ? <p>Este artista toca en radio</p> : <p>Este artista no toca en radio</p> ) :   <p></p>}
                 {this.state.verMas === 0 ? 
-                 <button onClick={()=>this.verMas()}>Ver Mas</button> :
-                 <button onClick={()=>this.verMenos()}>Ver Menos</button>
+                 <button className="botonVerMas" onClick={()=>this.verMas()}>Ver Mas</button> :
+                 <button className="botonVerMas" onClick={()=>this.verMenos()}>Ver Menos</button>
                 }
                 <h5 className="boton"><Link to={`/detalle/cantante/${this.props.id}`}>Ir a detalle</Link></h5>
                 {this.state.esFavorito ? 
