@@ -10,7 +10,7 @@ function Header(props) {
             <li><Link to="/cantantes">Cantantes</Link></li>
         </ul>
         <ul className="user">
-            <li>{props.usuario} <img src="./img/user.jpg" alt=""></img></li>
+            <li>{props.usuario} <img src="Proyecto_integrador/ProyectoIntegradorPro3/public/img/seleccion-argentina-con-trofeo-c.png" alt=""></img></li>
         </ul>
     </nav>)
 }

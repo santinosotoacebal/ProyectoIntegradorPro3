@@ -71,8 +71,7 @@ h1,h2 {
     font-weight: 400;
 }
 
-h1,
-main {
+h1{
     padding: 0 30px;
 }
 
@@ -156,5 +155,8 @@ nav{
 }
 .espaciado{
     margin-top: 10vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
     padding-bottom: 15vh;
+
 }

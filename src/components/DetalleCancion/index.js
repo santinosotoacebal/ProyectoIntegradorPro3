@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './index.css'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class DetalleCancion extends Component {
     constructor(props) {
@@ -58,14 +59,13 @@ class DetalleCancion extends Component {
                         </div>
                         <div className='detalleCancion2'>
                             <h1>Titulo: {info.title}</h1>
-                            <h2>Artista: {info.artist.name}</h2>
+                            <h2>Artista: <Link style={{color:"white"}} to={`/detalle/cantante/${info.artist.id}`}>{info.artist.name}</Link></h2>
                             <h2>Album: {info.album.title}</h2>
-                            <iframe title={info.title} src={this.state.data.preview} width="500" height="70" frameborder="0" allowfullscreen></iframe>
+                            <iframe title={info.title} src={info.preview} width="500" height="70" frameborder="0" allowfullscreen></iframe>
                             {this.state.esFavorito ? 
-                <button onClick = {(id)=>this.borrarFav(this.state.data.id)}>Borrar de favoritos</button> :
-                <button onClick = {(id)=>this.agregarFav(this.state.data.id)}>Agregar a Favoritos</button>
+                <button onClick = {(id)=>this.borrarFav(info.id)}>Borrar de favoritos</button> :
+                <button onClick = {(id)=>this.agregarFav(info.id)}>Agregar a Favoritos</button>
                 }
-                {console.log(this.state.data)}
                         </div>
                     </div>
                 </React.Fragment>

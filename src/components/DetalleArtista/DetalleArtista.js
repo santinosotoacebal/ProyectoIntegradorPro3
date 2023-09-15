@@ -20,7 +20,6 @@ export default class DetalleArtista extends Component {
                         esFavorito:true
                     })
                 }
-            console.log(EstaElC)
         }
         }))
         .catch(err => console.log(err))
