@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Canciones from "../../components/Canciones";
 import Cantantes from "../../components/Cantantes";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Buscador from "../../components/Buscador";
 class Home extends Component {
     constructor(props){
         super(props)
@@ -34,7 +35,8 @@ class Home extends Component {
     return(
         <React.Fragment>
             <main>
-                
+                <h2 className = "titulo">Busca tus Canciones/Artistas Favoritos</h2>
+                <Buscador />
                 <div className = "titulo">
                 <h2>Top Canciones</h2> 
                 <h2 className="verMas"><Link to="/canciones">Ver mas</Link></h2>

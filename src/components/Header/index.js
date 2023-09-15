@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import React, { Component } from 'react'
-import Buscador from "../Buscador";
+
 
 class Header extends Component {
     constructor(props) {
@@ -17,7 +17,6 @@ class Header extends Component {
             <li><Link to="/cantantes">Cantantes</Link></li>
         </ul>
         <ul>
-            <li><Buscador/></li>
             <li><img src ='https://icons.veryicon.com/png/o/object/custom-icon/listen-to-the-music.png' className = 'logo' alt='logo'></img></li>
         </ul>
         

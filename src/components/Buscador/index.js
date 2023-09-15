@@ -15,7 +15,7 @@ class Buscador extends Component {
         return ( 
             <form onSubmit={(e)=> this.evitarSubmit(e)}>
             <input style={{marginRight:5}} placeholder='Buscador ' type="text" onChange={(e)=>this.guardarValor(e)} name="search" value={this.state.valor}/>
-            <Link to = {"/resultadodebusqueda/" + this.state.valor} className = 'botonVerMas'> Buscar  </Link>
+            <Link to = {"/resultadodebusqueda/" + this.state.valor} className = 'botonVerMas2'> Buscar  </Link>
             </form>
         );
     }
