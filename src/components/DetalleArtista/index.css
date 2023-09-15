@@ -5,6 +5,8 @@
     display: flex;
     justify-content: center;
     margin: 0 2%;
+    align-self: center;
+    justify-self: center;
 }
 .detalleCancion1{
     width: max-content;
@@ -15,21 +17,61 @@
 }
 .detalleCancion1 img{
     height: 100%;
+    justify-self: center;
+    align-self: center;
 }
 .detalleCancion2{
     height: 100%;
     color: white;
-    background-color: rgba(63, 63, 63, 0.509);
+    background-color: #4e73df;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    border: 1px solid white;
+    align-items: flex-center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 3px solid black;
     padding:0 10px;
+    min-width: 30vw;
 }
 .detalleCancion2 h1{
     padding: 0;
 }
 .a{
     color: white;
+}
+.botonVerMas{
+    background-color: white;
+    border-radius: 6px;
+    border: none;
+    padding: 3px 5px;
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.botonVerMas:hover{
+    background-color: grey;
+}
+
+@media (max-width: 420px) {
+    .detalleCancionContainer{
+        color: white;
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin: 0 2%;
+        flex-direction: column;
+    }
+    .detalleCancion1 img{
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+    .artista{
+        width: 126px;
+    }
 }

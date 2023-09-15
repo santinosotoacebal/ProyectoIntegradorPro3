@@ -6,16 +6,10 @@ class DetalleCantante extends Component {
         this.state = { data : [],
         canciones:[] }
     }
-    componentDidMount(){
-        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/artist/${this.props.match.params.id}`)
-        .then(res => res.json())
-        .then(data => this.setState({data:data},()=>console.log(data)))
-        .catch(err => console.log(err))
-    }
     render() { 
         return (
             <>
-            <DetalleArtista info = {this.state.data} canciones = {this.state.canciones}/>
+            <DetalleArtista id = {this.props.match.params.id}/>
             </>
         
         );

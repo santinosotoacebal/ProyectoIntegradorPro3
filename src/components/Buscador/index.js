@@ -11,8 +11,8 @@ class Buscador extends Component {
     render() { 
         return ( 
             <form action={`/resultadodebusqueda/${this.state.valor}`}>
-            <input placeholder='Buscador de Artistas' type="text" onChange={(e)=>this.guardarValor(e)} name="search" value={this.state.valor}/>
-            <input style={{border:"none", background:"none"}} type="submit" value="Buscar"/>
+            <input style={{marginRight:5}} placeholder='Buscador ' type="text" onChange={(e)=>this.guardarValor(e)} name="search" value={this.state.valor}/>
+            <button className='botonVerMas' type="submit" value="Buscar"> Buscar </button> 
             </form>
         );
     }

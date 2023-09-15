@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./index.css"    
 
 export default class DetalleArtista extends Component {
     constructor(props){
@@ -8,13 +9,14 @@ export default class DetalleArtista extends Component {
             esFavorito:false
         }
     }
+    
     componentDidMount(){
-        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/artist/${this.props.info.id}`)
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/artist/${this.props.id}`)
         .then(res => res.json())
-        .then(data => this.setState({data:data},()=>{
+        .then(dataf => this.setState({data:dataf},()=>{
             let FavoritosStorage = JSON.parse(localStorage.getItem('favoritosCantantes'))
             if (FavoritosStorage !== null) {
-                let EstaElC = FavoritosStorage.includes(this.props.info.id)
+                let EstaElC = FavoritosStorage.includes(this.state.data.id)
                 if (EstaElC) {
                     this.setState({
                         esFavorito:true
@@ -47,19 +49,24 @@ export default class DetalleArtista extends Component {
         })
     }
   render() {
+   if (this.state.data== null) {
+       <h1>cargando</h1>
+   } else {
     return (
+        
         <React.Fragment>
         <div className='detalleCancionContainer'>
             <div className='detalleCancion1'>
-                <img src={this.props.info.picture_medium} alt= {this.props.info.name}></img>
+                <img src={this.state.data.picture_medium} alt= {this.state.data.name} className = 'artista'></img>
             </div>
             <div className='detalleCancion2'>
-                <h1>Nombre:{this.props.info.name} </h1>
-                <h2>Cantidad de Fans: {this.props.info.nb_fan}</h2>
-                <h2>Cantidad de albumes: {this.props.info.nb_album}</h2>
+        
+                <h1>Nombre: {this.state.data.name} </h1>
+                <h2>Cantidad de Fans: {this.state.data.nb_fan}</h2>
+                <h2>Cantidad de albumes: {this.state.data.nb_album}</h2>
                 {this.state.esFavorito ? 
-                <button onClick = {(id)=>this.borrarFav(this.props.info.id)}>Borrar de favoritos</button> :
-                <button onClick = {(id)=>this.agregarFav(this.props.info.id)}>Agregar a Favoritos</button>
+                <button className= 'botonVerMas' onClick = {(id)=>this.borrarFav(this.state.data.id)}>Borrar de favoritos</button> :
+                <button className= 'botonVerMas' onClick = {(id)=>this.agregarFav(this.state.data.id)}>Agregar a Favoritos</button>
                 }
             </div>
             
@@ -67,4 +74,6 @@ export default class DetalleArtista extends Component {
     </React.Fragment>
     )
   }
+   }
+    
 }
