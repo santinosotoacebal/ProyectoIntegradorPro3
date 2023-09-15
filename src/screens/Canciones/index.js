@@ -38,7 +38,7 @@ class Canciones extends Component {
     render() { 
         return (
             <React.Fragment>
-                <h2>Filtrar Canciones</h2>
+                <h2 className = "titulo">Filtrar Canciones</h2>
                 <Filtro filtrarResultados = {(texto)=>this.filtrarResultados(texto)} />
                 <CancionesContainter info = {this.state.canciones}/>
                 <button onClick={()=>this.buscarMas()}>Traer Mas!</button>

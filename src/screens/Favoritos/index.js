@@ -48,9 +48,9 @@ class Favoritos extends Component {
         let storageCantantes = JSON.parse(localStorage.getItem('favoritosCantantes'))
         return (
         <>
-        <h2>Favoritos Canciones</h2>
+        <h2 className = "titulo">Tus Canciones Favoritas!</h2>
         {storageCanciones.length ===  0  ?  <h3>Aun no has añadido ninguna cancion a favoritos</h3>:<CancionesContainter info = {this.state.favoritosCanciones} actualizarEstadoCanciones = {(id)=>this.actualizarEstadoCanciones(id)}/>}
-        <h2>Favoritos Cantantes</h2>
+        <h2 className = "titulo">Tus Cantantes Favoritos!</h2>
         {storageCantantes.length === 0 ? <h3>Aun no has añadido ningun cantante a favoritos</h3>:<Cantantes info = {this.state.favoritosCantantes} actualizarEstadoCantantes = {(id)=>this.actualizarEstadoCantantes(id)}/>}
         </>
         )
