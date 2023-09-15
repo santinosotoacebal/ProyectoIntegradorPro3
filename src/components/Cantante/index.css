@@ -19,7 +19,11 @@ p{
     align-self: flex-start;
 }
 .foto{
-    max-width: 10vw;
+    max-width: 15vw;
+}
+.textoCantante{
+    margin-bottom: 10px;
+    text-align: center;
 }
 .botonVerMas{
     background-color: white;
@@ -32,4 +36,18 @@ p{
 
 .botonVerMas:hover{
     background-color: grey;
+}
+@media (max-width: 420px) {
+    .divCantante{
+        display: flex; 
+        width: 30%;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 10px;
+        background-color: #4e73df;
+        border-radius: 10px;
+        margin-top: 1vh;
+        border: 3px solid black
+    }
+
 }

@@ -58,7 +58,7 @@ class Cantante extends Component{
             <React.Fragment>
                 <div className="divCantante">
                 <img src={this.props.img} alt={this.props.name} className = "foto"></img>
-                <h4>{this.props.name}</h4>
+                <h4 className ='textoCantante'>{this.props.name}</h4>
                 {this.state.verMas === 1 ? ( this.props.radio === true ? <p>Este artista toca en radio</p> : <p>Este artista no toca en radio</p> ) :   <p></p>}
                 {this.state.verMas === 0 ? 
                  <button className="botonVerMas" onClick={()=>this.verMas()}>Ver Mas</button> :

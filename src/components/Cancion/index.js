@@ -56,10 +56,10 @@ class Cancion extends Component{
     render(){
         return(
             <React.Fragment>
-                <div className="divPelicula">
+                <div className="divCancion">
                 <img src={this.props.img} alt={this.props.name} className = "foto"></img>
-                <h4>{this.props.name}</h4>
-                <h4>{this.props.artist}</h4>
+                <h4 className ="textoCancion">Titulo: {this.props.name}</h4>
+                <h4 className ="textoCancion">Artista: {this.props.artist}</h4>
                 {this.state.verMas === 1 ? ( this.props.expl === true ? <p>Esta cancion contiene palabras explicitas</p> : <p>Esta cancion no contiene palabras explicitas</p> ) :   <p></p>}       
                 {this.state.verMas === 0 ? 
                  <button className="botonVerMas" onClick={()=>this.verMas()}>Ver Mas</button> :

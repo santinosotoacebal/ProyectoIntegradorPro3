@@ -172,3 +172,12 @@ nav{
     width: 250px;
     height: 230px;
 }
+@media (max-width: 420px) {
+    .espaciado{
+        margin-top: 15vh;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        padding-bottom: 15vh;
+    
+    }
+}

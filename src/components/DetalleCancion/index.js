@@ -49,23 +49,25 @@ class DetalleCancion extends Component {
         console.log(this.props)
         let info = this.state.data
         if (info == null) {
-            return <h1>Toy cargando</h1>
+            return  <div className="divGif"><img className='GIF' src='https://usagif.com/wp-content/uploads/loading-79.gif' alt = "Loader"/></div> 
         }else{
             return (
                 <React.Fragment>
-                    <div className='detalleCancionContainer'>
-                        <div className='detalleCancion1'>
-                            <img src={info.album.cover} alt={info.title}></img>
-                        </div>
-                        <div className='detalleCancion2'>
-                            <h1>Titulo: {info.title}</h1>
-                            <h2>Artista: <Link style={{color:"white"}} to={`/detalle/cantante/${info.artist.id}`}>{info.artist.name}</Link></h2>
-                            <h2>Album: {info.album.title}</h2>
-                            <iframe title={info.title} src={info.preview} width="500" height="70" frameborder="0" allowfullscreen></iframe>
-                            {this.state.esFavorito ? 
-                <button onClick = {(id)=>this.borrarFav(info.id)}>Borrar de favoritos</button> :
-                <button onClick = {(id)=>this.agregarFav(info.id)}>Agregar a Favoritos</button>
-                }
+                    <div className='centrar'>
+                        <div className='detalleCancionContainer'>
+                            <div className='detalleCancion1'>
+                                <img src={info.album.cover} alt={info.title} className = "fotoCancion"></img>
+                            </div>
+                            <div className='detalleCancion2'>
+                                <h1 className = "textoDetalleCancion1">Titulo: {info.title}</h1>
+                                <h2 className = "textoDetalleCancion2">Artista: <Link style={{color:"white"}} to={`/detalle/cantante/${info.artist.id}`}>{info.artist.name}</Link></h2>
+                                <h2 className = "textoDetalleCancion2">Album: {info.album.title}</h2>
+                                <iframe title={info.title} src={info.preview} width="500" height="70" frameborder="0" allowfullscreen className = 'player'></iframe>
+                                {this.state.esFavorito ? 
+                    <button onClick = {(id)=>this.borrarFav(info.id)} className = 'botonVerMas'>Borrar de favoritos</button> :
+                    <button onClick = {(id)=>this.agregarFav(info.id)} className = 'botonVerMas'>Agregar a Favoritos</button>
+                    }
+                            </div>
                         </div>
                     </div>
                 </React.Fragment>

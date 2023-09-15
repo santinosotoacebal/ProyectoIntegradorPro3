@@ -8,7 +8,7 @@ class About extends Component{
     render(){
         return(
             <React.Fragment>
-                
+                <h1>Busca tus artistas y canciones favoritas!</h1>
             </React.Fragment>
         )
     }
