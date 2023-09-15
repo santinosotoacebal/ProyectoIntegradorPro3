@@ -17,7 +17,8 @@ class Header extends Component {
             <li><Link to="/cantantes">Cantantes</Link></li>
         </ul>
         <ul>
-            <li><img src ='https://icons.veryicon.com/png/o/object/custom-icon/listen-to-the-music.png' className = 'logo'></img></li>
+            <li><Buscador/></li>
+            <li><img src ='https://icons.veryicon.com/png/o/object/custom-icon/listen-to-the-music.png' className = 'logo' alt='logo'></img></li>
         </ul>
         
     </nav>)

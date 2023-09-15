@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class Buscador extends Component {
     constructor(props) {
         super(props);
@@ -7,12 +8,14 @@ class Buscador extends Component {
     guardarValor(texto){
         this.setState({valor:texto.target.value})
     }
-
+    evitarSubmit(e){
+        e.preventDefault()
+    }
     render() { 
         return ( 
-            <form action={`/resultadodebusqueda/${this.state.valor}`}>
+            <form onSubmit={(e)=> this.evitarSubmit(e)}>
             <input style={{marginRight:5}} placeholder='Buscador ' type="text" onChange={(e)=>this.guardarValor(e)} name="search" value={this.state.valor}/>
-            <button className='botonVerMas2' type="submit" value="Buscar"> Buscar </button> 
+            <Link to = {"/resultadodebusqueda/" + this.state.valor} className = 'botonVerMas'> Buscar  </Link>
             </form>
         );
     }

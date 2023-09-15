@@ -22,6 +22,17 @@ class resultadoBusqueda extends Component {
         .catch(err=>console.log(err))
 
     }
+    componentDidUpdate(){
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/search/artist?q=${this.props.match.params.busqueda}`)
+        .then(res => res.json())
+        .then(data=> this.setState({data:data.data},()=>console.log(this.state.data.data)))
+        .catch(err=>console.log(err))
+
+        fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/search?q=track::"${this.props.match.params.busqueda}"`)
+        .then(res => res.json())
+        .then(data=> this.setState({datacanciones:data.data}))
+        .catch(err=>console.log(err))
+    }
     render() { 
         return (
             <>

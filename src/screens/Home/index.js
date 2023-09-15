@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Canciones from "../../components/Canciones";
 import Cantantes from "../../components/Cantantes";
-import Buscador from "../../components/Buscador";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 class Home extends Component {
     constructor(props){
@@ -14,12 +13,12 @@ class Home extends Component {
     componentDidMount(){
         fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/artists?limit=5`)
         .then(res => res.json())
-        .then(data => this.setState({dataCantantes:data.data},()=>console.log(data)))
+        .then(data => this.setState({dataCantantes:data.data}))
         .catch(err => console.log(err))
 
         fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/tracks&top?limit=5`)
         .then(res => res.json())
-        .then(data => this.setState({dataCanciones:data.data},()=>console.log(data)))
+        .then(data => this.setState({dataCanciones:data.data}))
         .catch(err => console.log(err))
 
         if (localStorage.getItem('favoritosCanciones')==null) {
@@ -35,8 +34,7 @@ class Home extends Component {
     return(
         <React.Fragment>
             <main>
-                <h2 className = "titulo">Busca tus Canciones/Artistas favoritos!</h2>
-                <Buscador/>
+                
                 <div className = "titulo">
                 <h2>Top Canciones</h2> 
                 <h2 className="verMas"><Link to="/canciones">Ver mas</Link></h2>
