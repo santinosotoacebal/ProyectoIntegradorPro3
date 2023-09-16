@@ -50,7 +50,7 @@ export default class DetalleArtista extends Component {
     }
   render() {
    if (this.state.data== null) {
-       <h1>cargando</h1>
+     return  <div className="divGif"><img className='GIF' src='https://usagif.com/wp-content/uploads/loading-79.gif' alt = "Loader"/></div> 
    } else {
     return (
         
